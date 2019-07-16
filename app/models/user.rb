@@ -31,7 +31,8 @@ class User < ApplicationRecord
 
 		# setup max length of zeroes
 		consecutive_zeroes = 0
-		# iterate over the array
+		# iterate over the array, comparing the length of each 'chunk' of zeroes to the previous largest
+		# replace it if the length is greater, thus the new longest length of zeroes
 		zeroes_array.each do |elem|
 			if elem.length > consecutive_zeroes
 				consecutive_zeroes = elem.length
