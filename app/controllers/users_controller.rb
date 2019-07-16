@@ -6,13 +6,11 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.create!(user_params)
-
+		zeroes = User.ascii_totaller(user.first_name, user.last_name)
 		name = user.first_name + " " + user.last_name
 		puts name
 
-		# split the name string
-
-		render :json => { user_id: user.id, ascii: name }
+		render :json => { user_id: user.id, name_submitted: name, consecutive_zeroes: zeroes }
 	end
 
 	def show

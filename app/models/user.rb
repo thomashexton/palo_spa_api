@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-	def ascii_totaller first_name, last_name
+	def self.ascii_totaller first_name, last_name
 		full_name = "#{first_name} #{last_name}"
 		ascii_total = 0
 
@@ -15,7 +15,9 @@ class User < ApplicationRecord
 		return consecutive( ascii_total.to_s(2) )
 	end
 
-	def consecutive string
+	def self.consecutive string
+		puts "consecutive fn called"
+
 		# if the input binary number doens't include 0, it must occur 0 times...
 		if string.include?('0') == false
 			puts "Doesn't include any consecutive 0s."
