@@ -18,4 +18,4 @@ This Ruby on Rails API server receives the POST request from the client, stores 
 
 ---
 
-### Frontend Client GitHub — https://github.com/thomashexton/palo_spa_client
+#### Frontend Client GitHub — https://github.com/thomashexton/palo_spa_client
