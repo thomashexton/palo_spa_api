@@ -10,14 +10,12 @@ class User < ApplicationRecord
 			ascii_total += char.ord
 		end
 
-		# visual check against output
-		puts ascii_total.to_s(2)
+		# # visual check to see if output is correct
+		# puts "\n*****\nVisual Check\n__________\n#{ascii_total.to_s(2)}\n*****\n\n"
 		return consecutive( ascii_total.to_s(2) )
 	end
 
 	def self.consecutive string
-		puts "consecutive fn called"
-
 		# if the input binary number doens't include 0, it must occur 0 times...
 		if string.include?('0') == false
 			puts "Doesn't include any consecutive 0s."

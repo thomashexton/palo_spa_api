@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-	# resources :users
 
 	root :to => "users#index"
 
@@ -8,4 +7,5 @@ Rails.application.routes.draw do
 
 	get "/users" => "users#index"
 	post "/users" => "users#create"
+	
 end

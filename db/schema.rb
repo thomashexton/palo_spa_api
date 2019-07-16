@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_15_031733) do
   create_table "users", force: :cascade do |t|
     t.text "first_name"
     t.text "last_name"
+    t.integer "consecutive_zeroes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
