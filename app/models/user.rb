@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :bigint(8)        not null, primary key
+#  first_name         :text
+#  last_name          :text
+#  consecutive_zeroes :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  ascii_total        :integer
+#  binary_conversion  :bigint(8)
+#
+
 class User < ApplicationRecord
 
 	def self.ascii_totaller first_name, last_name
@@ -12,10 +26,14 @@ class User < ApplicationRecord
 
 		# # visual check to see if output is correct
 		# puts "\n*****\nVisual Check\n__________\n#{ascii_total.to_s(2)}\n*****\n\n"
-		return consecutive( ascii_total.to_s(2) )
+		return ascii_total
 	end
 
-	def self.consecutive string
+	def self.binary_converter string
+		return string.to_s(2)
+	end
+
+	def self.consecutive_zeroes string
 		# if the input binary number doens't include 0, it must occur 0 times...
 		if string.include?('0') == false
 			puts "Doesn't include any consecutive 0s."

@@ -1,16 +1,21 @@
 class UsersController < ApplicationController
 	def index
-		users = User.order('id DESC')
-
+		# gather all users, and order by DESC so the most recent generated is shown at the top
+		users = User.all.order 'id DESC'
 		render :json => { :users => users }
 	end
 
 	def create
-		puts "\n*****\nParameters Sent to Server\n__________\n#{params}\n*****\n"
+		user = User.new user_params
+		ascii_total = User.ascii_totaller user.first_name, user.last_name
+		user.ascii_total = ascii_total
 
-		user = User.new(user_params)
-		consecutive_zeroes = User.ascii_totaller(user.first_name, user.last_name)
+		binary_conversion = User.binary_converter ascii_total
+		user.binary_conversion = binary_conversion
+
+		consecutive_zeroes = User.consecutive_zeroes binary_conversion
 		user.consecutive_zeroes = consecutive_zeroes
+
 		user.save
 
 		name = user.first_name + " " + user.last_name
