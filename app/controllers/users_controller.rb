@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 	def destroy
 		user = User.find params[:id]
 		user.destroy
-		users = User.all
+		users = User.all.order 'id DESC'
 		render :json => { :user => user, :users => users }
 	end
 
