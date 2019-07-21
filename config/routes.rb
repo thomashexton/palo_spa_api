@@ -9,12 +9,14 @@
 
 Rails.application.routes.draw do
 
-	root :to => "users#index"
+	get '/' => "users#index"
 
 	get "/users/:id" => "users#show"
-	post "/users/:id" => "users#update"
+	delete "/users/:id" => "users#destroy"
 
 	get "/users" => "users#index"
 	post "/users" => "users#create"
-	
+
+
+
 end

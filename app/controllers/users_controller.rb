@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.new user_params
+
 		ascii_total = User.ascii_totaller user.first_name, user.last_name
 		user.ascii_total = ascii_total
 
@@ -18,11 +19,18 @@ class UsersController < ApplicationController
 
 		user.save
 
-		render :json => { id: user.id, first_name: user.first_name, last_name: user.last_name, ascii_total: user.ascii_total, binary_conversion: user.binary_conversion, consecutive_zeroes: consecutive_zeroes }
+		render :json => { :user => user }
 	end
 
 	def show
 		user = User.find params[:id]
+		render :json => { :user => user }
+	end
+
+	def destroy
+		user = User.find params[:id]
+		user.destroy
+		users = User.all
 		render :json => { :user => user }
 	end
 
