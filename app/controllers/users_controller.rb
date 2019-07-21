@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 		user = User.find params[:id]
 		user.destroy
 		users = User.all
-		render :json => { :user => user }
+		render :json => { :user => user, :users => users }
 	end
 
 	private
