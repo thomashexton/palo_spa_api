@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 		user = User.find params[:id]
 		user.destroy
 		users = User.all.order 'id DESC'
-		render :json => { :user => user, :users => users }
+		render :json => { :deleted_user => user, :users => users }
 	end
 
 	private
